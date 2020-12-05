@@ -2,6 +2,7 @@
 # Created by John C.S. Lui     Date: April 10, 2020
 
 # fork of prog1_random_selection.py
+# WU Jinming, 1155150570
 # Homework 4
 # baseline Explore-Then-Exploit Arm Selection
 
