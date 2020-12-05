@@ -11,14 +11,12 @@ import numpy as np
 from scipy.stats import bernoulli  # import bernoulli
 import matplotlib.pyplot as plt
 
-Num_of_Arms = 4      # number of arms
+Num_of_Arms = 8      # number of arms
 
 #  input parameters 
-winning_parameters = np.array([0.2, 0.3, 0.85, 0.9], dtype=float)
-max_prob = 0.9				      # record the highest probability of winning for all arms
-optimal_arm = 3					      # index for the optimal arm
-T = 1000					      # number of rounds to simulate
-total_iteration = 200				      # number of iterations to the MAB simulation
+winning_parameters = np.array([0.2, 0.3, 0.85, 0.9, 0.6, 0.15, 0.4, 0.75], dtype=float)
+T = 5000					      # number of rounds to simulate
+total_iteration = 500				      # number of iterations to the MAB simulation
 
 reward_round_iteration = np.zeros((T), dtype=float)     # reward in each round average by # of iteration
 accumulated_reward_iteration = np.zeros((T), dtype=float)
@@ -74,7 +72,7 @@ Y = np.zeros (T, dtype=float)
 Z = np.zeros (T, dtype=float)
 for round in range(T):
 	X[round] = round
-	cumulative_optimal_reward += max_prob
+	cumulative_optimal_reward += np.max(winning_parameters)
 	cumulative_reward += average_reward_in_each_round[round]
 	Y[round] = cumulative_optimal_reward - cumulative_reward
 
